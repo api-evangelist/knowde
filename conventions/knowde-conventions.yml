@@ -1,0 +1,125 @@
+generated: '2026-08-01'
+method: searched
+source: https://developer.knowde.com/documentation
+docs:
+- https://developer.knowde.com/documentation
+- https://developer.knowde.com/documentation/auth
+- https://developer.knowde.com/documentation/rate_limits
+- https://developer.knowde.com/documentation/pims_filters
+- https://developer.knowde.com/documentation/api_clients
+surfaces:
+  rest:
+    base_url: https://developer-api.knowde.com
+    style: Resource-oriented URLs, JSON-encoded request payloads and responses, standard
+      HTTP verbs and status codes.
+    reference: https://developer.knowde.com/documentation/rest
+    reference_public: false
+    reference_note: The REST reference is rendered with Redoc but the page redirects
+      anonymous visitors to https://www.knowde.com/sign-in, so the underlying OpenAPI
+      document is not reachable without an account.
+  graphql:
+    endpoint: https://developer-api.knowde.com/graphql
+    reference: https://developer.knowde.com/documentation/graphql
+    reference_public: false
+    introspection: gated
+    introspection_note: 'POST {__schema{queryType{name}}} returns HTTP 401
+      {"message":"Unauthorized"} — the schema exists but requires an access token.
+      Knowde states the reference is auto-generated from the schema and exported as
+      a standard GraphQL SDL file, but does not publish that SDL anonymously.'
+    positioning: Knowde recommends GraphQL as the primary programmatic interface and
+      states that anything possible in the REST API should also be possible in GraphQL.
+    recommended_client: Apollo Client (https://www.apollographql.com/docs/react/)
+authentication:
+  style: OAuth 2.0 bearer token
+  header: 'Authorization: Bearer {access_token}'
+  detail: authentication/knowde-authentication.yml
+idempotency:
+  supported: unknown
+  documented: false
+  note: Knowde publishes no idempotency-key header, retry-safety contract, or
+    request-deduplication guidance on its public developer site. No Idempotency
+    pointer is emitted.
+pagination:
+  documented: false
+  note: No public pagination contract is documented; the paging parameters would sit
+    in the sign-in-gated REST/GraphQL references.
+filtering:
+  name: PIMS filters
+  docs: https://developer.knowde.com/documentation/pims_filters
+  description: A structured filter grammar for querying the Knowde Product Information
+    Management System (PIMS). Filters are arrays of nested objects, so any number of
+    filters can be combined in one request.
+  json_shape: '[{"field": "weight", "fieldId": null, "type": {"range": {"numericRange":
+    {"from": 1, "to": 10}}}}]'
+  rest_encoding:
+    method: GET
+    style: Indexed query-parameter families, modeled on the JSON:API query parameter
+      family convention, with required array indexes so the parameters parse
+      unambiguously.
+    example: /categories?filters[][field]=weight&filters[][type][range][numeric_range][to]=10&filters[][type][range][numeric_range][from]=1
+  field_vs_field_id:
+    field: The object property to filter on; must match the same value as in the
+      response.
+    field_id: Required when field is `attribute` or `category`; must be the slug of
+      the property being filtered.
+  types:
+  - boolean
+  - list
+  - range
+  - value
+  list_modes:
+    any: Matches results where the field contains any of the provided values (may also
+      carry additional values).
+    all: Requires the field to carry all of the provided values and nothing more.
+rate_limiting:
+  documented: true
+  docs: https://developer.knowde.com/documentation/rate_limits
+  window: 5 minutes
+  limit_basis: Configured per Knowde subscription plan; Knowde publishes no fixed
+    numeric limit.
+  over_limit_status: 429
+  headers:
+  - name: RateLimit-Limit
+    description: Total requests allowed within the current rate limit window, based
+      on the subscription plan.
+  - name: RateLimit-Remaining
+    description: Requests remaining before the limit is reached; further requests are
+      denied at zero.
+  - name: RateLimit-Reset
+    description: UNIX epoch time at which the quota resets.
+  standard_alignment: Header names match the IETF RateLimit header fields draft
+    (RateLimit-Limit / RateLimit-Remaining / RateLimit-Reset).
+  token_guidance: Clients that request too many OAuth tokens may themselves be rate
+    limited.
+versioning:
+  documented: false
+  note: No public versioning or API-version-header policy is published. The base host
+    developer-api.knowde.com is not path-versioned in the documented examples
+    (e.g. GET /lead_groups).
+error_envelope:
+  documented: false
+  observed:
+  - status: 403
+    body: '{"message":"Missing Authentication Token"}'
+    note: Observed from the AWS API Gateway edge at developer-api.knowde.com for
+      unauthenticated requests.
+  - status: 401
+    body: '{"message":"Unauthorized"}'
+    note: Observed for an unauthenticated POST to /graphql.
+  problem_json: false
+  detail: No public error reference is published, so no errors/ catalog is emitted.
+environments:
+  production: https://developer-api.knowde.com
+  staging:
+    available: true
+    quote: 'When using the Knowde API, you have an option to work in our staging
+      environment to build and test your integration without affecting your live data
+      or interacting with production systems.'
+    host_published: false
+  detail: sandbox/knowde-sandbox.yml
+cross_links:
+  authentication: authentication/knowde-authentication.yml
+  lifecycle: lifecycle/knowde-lifecycle.yml
+  conformance: conformance/knowde-conformance.yml
+  sandbox: sandbox/knowde-sandbox.yml
+  changelog: changelog/knowde-changelog.yml

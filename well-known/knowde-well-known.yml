@@ -1,0 +1,53 @@
+generated: '2026-08-01'
+method: probed
+source: live HTTP probes of every Knowde host in apis.yml
+result: none
+notes: 'Every /.well-known/ discovery path was probed on all four Knowde hosts and
+  none returned a usable document. www.knowde.com answers 404 with the site HTML
+  shell; developer-api.knowde.com is an AWS API Gateway edge that answers 403
+  {"message":"Missing Authentication Token"} for every path; developer.knowde.com
+  answers HTTP 500 for unrouted paths. No raw files were saved and no WellKnown or
+  SecurityTxt pointer is emitted, because no well-known document exists.'
+hosts:
+- host: https://www.knowde.com
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/oauth-protected-resource, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+  - {path: /.well-known/agent-card.json, status: 404}
+  - {path: /.well-known/agent.json, status: 404}
+  - {path: /.well-known/mcp.json, status: 404}
+- host: https://developer-api.knowde.com
+  note: AWS API Gateway; returns 403 {"message":"Missing Authentication Token"} for
+    every unauthenticated path, including paths that do not exist.
+  documents:
+  - {path: /.well-known/security.txt, status: 403}
+  - {path: /.well-known/openid-configuration, status: 403}
+  - {path: /.well-known/oauth-authorization-server, status: 403}
+  - {path: /.well-known/oauth-protected-resource, status: 403}
+  - {path: /.well-known/api-catalog, status: 403}
+  - {path: /.well-known/ai-plugin.json, status: 403}
+  - {path: /.well-known/agent-card.json, status: 403}
+  - {path: /.well-known/agent.json, status: 403}
+- host: https://developer.knowde.com
+  documents:
+  - {path: /.well-known/security.txt, status: 500}
+  - {path: /.well-known/openid-configuration, status: 500}
+  - {path: /.well-known/oauth-authorization-server, status: 500}
+  - {path: /.well-known/oauth-protected-resource, status: 500}
+  - {path: /.well-known/agent-card.json, status: 500}
+  - {path: /.well-known/agent.json, status: 500}
+- host: https://api.knowde.com
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/oauth-protected-resource, status: 404}
+  - {path: /.well-known/agent-card.json, status: 404}
+  - {path: /.well-known/agent.json, status: 404}
+x-evidence:
+  fetched: '2026-08-01'
+  method: curl HTTPS GET, browser user-agent, redirects followed

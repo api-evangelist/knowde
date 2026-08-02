@@ -1,0 +1,63 @@
+generated: '2026-08-01'
+method: searched
+source: https://www.knowde.com/resources/whats-new
+url: https://www.knowde.com/resources/whats-new
+title: What's New at Knowde
+scheme: unversioned-feature-releases
+dated: false
+current_version: null
+notes: 'Knowde publishes a product "What''s New" page rather than a dated, versioned
+  API changelog. The page lists recent platform feature releases across Knowde MDM,
+  Knowde Marketplace and the dashboard, but carries no release dates, version numbers
+  or chronological ordering, and it is a product changelog rather than an API
+  changelog — no breaking-change or API-surface notices are published. Entries below
+  are transcribed as listed; because the source is undated, no dates are asserted.'
+entries:
+- product: Knowde MDM
+  title: Knowledge Engine Dropzone
+  highlight: AI-assisted maintenance of product data, with automatic updates.
+  date: null
+  breaking: null
+- product: Knowde MDM
+  title: 'Workflow Builder: Change Requests'
+  highlight: Visibility and control over changes to product data.
+  date: null
+  breaking: null
+- product: Knowde MDM
+  title: TDS Builder
+  highlight: Dynamically generate branded technical data sheet documents directly from
+    product data.
+  date: null
+  breaking: null
+- product: Knowde Marketplace
+  title: Route General Inquiries
+  highlight: Use Channel Rules to automatically route general inquiries to the right
+    experts.
+  date: null
+  breaking: null
+- product: Knowde Platform
+  title: Dashboard Enhancements
+  highlight: New interface for key metrics and customer engagement tracking.
+  date: null
+  breaking: null
+- product: Knowde Platform
+  title: Media Asset Manager
+  highlight: Streamlined media asset management workflows.
+  date: null
+  breaking: null
+- product: Knowde Platform
+  title: Route Leads to Distributors
+  highlight: Streamlined request and lead management to distribution partners.
+  date: null
+  breaking: null
+api_changelog:
+  published: false
+  note: The developer site (developer.knowde.com) publishes no changelog or release
+    notes section; /documentation/changelog returns HTTP 500.
+x-evidence:
+- fetched: '2026-08-01'
+  url: https://www.knowde.com/resources/whats-new
+  http_status: 200
+- fetched: '2026-08-01'
+  url: https://developer.knowde.com/documentation/changelog
+  http_status: 500

@@ -1,0 +1,53 @@
+generated: '2026-08-01'
+method: searched
+source: npm, PyPI, RubyGems, Maven Central, NuGet, pkg.go.dev, Packagist, crates.io,
+  github.com/knowde, https://developer.knowde.com/documentation
+packages: []
+notes: 'No first-party Knowde API client library was found in any public package
+  registry, on the Knowde developer site, or in the Knowde GitHub organization. The
+  documentation points integrators at a third-party client instead: for JavaScript
+  and Node.js apps Knowde suggests Apollo Client for talking to its GraphQL API. No
+  SDKs pointer is emitted, because no official SDK exists to point at.'
+registries_searched:
+- registry: npm
+  result: 'Only @knowde/common (v1.0.0, published 2026-02-16 by an unaffiliated
+    maintainer, no description, no repository, no homepage) — not evidenced as
+    first-party, so not listed.'
+- registry: pypi
+  result: 'The `knowde` project on PyPI belongs to an unrelated author (Shogo Goto,
+    github.com/shogogoto/knowde) — not Knowde the company.'
+- registry: rubygems
+  result: No first-party Knowde API client found.
+- registry: maven-central
+  result: No first-party Knowde API client found.
+- registry: nuget
+  result: No first-party Knowde API client found.
+- registry: pkg.go.dev
+  result: No first-party Knowde API client found.
+- registry: packagist
+  result: No first-party Knowde API client found.
+- registry: crates.io
+  result: No first-party Knowde API client found.
+github_organization:
+  url: https://github.com/knowde
+  public_repos: 13
+  note: 'The Knowde GitHub org is mostly forks of upstream projects (rswag, ngx-datatable,
+    money, validates_zipcode, fedex, cloudinary_gem, mattermost, builder,
+    file-changes-action, elasticsearch-action, action-slack). The one clearly
+    Knowde-authored repository is grapesjs-knowde-plugin, a GrapesJS CMS plug-in
+    behind Knowde''s CMS page editing — not an API client library.'
+  first_party_repos:
+  - name: grapesjs-knowde-plugin
+    url: https://github.com/knowde/grapesjs-knowde-plugin
+    language: JavaScript
+    description: GrapesJS CMS plug-in, the foundation of Knowde's CMS solution for
+      editing pages.
+    api_client: false
+recommended_third_party:
+- language: javascript
+  name: '@apollo/client'
+  url: https://www.apollographql.com/docs/react/
+  official: false
+  recommended_by_provider: true
+  note: Recommended by Knowde for integrating with the Knowde GraphQL API from a
+    JavaScript or Node.js app.

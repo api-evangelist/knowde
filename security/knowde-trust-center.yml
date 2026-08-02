@@ -1,0 +1,61 @@
+generated: '2026-08-01'
+method: searched
+probe: true
+source: https://trust.knowde.com/
+url: https://trust.knowde.com/
+certifications:
+- SOC 2 Type 2
+- ISO/IEC 27001:2022
+- ISO/IEC 27701:2019
+regulatory:
+- name: GDPR
+  scope: Personal data and privacy of EU citizens.
+- name: CCPA
+  scope: California Consumer Privacy Act — data privacy for California residents.
+- name: PIPEDA
+  scope: Personal data protection for Canadian citizens.
+- name: EU-U.S. Data Privacy Framework
+  scope: Including the UK extension and the Swiss-U.S. framework.
+program:
+  change_management: Change management process with restricted use of production data.
+  vulnerability_management: Vulnerability scanning plus annual third-party penetration
+    testing.
+  incident_response: Incident response plan with tabletop testing.
+  resilience: High availability configurations and annual backup restoration testing.
+  access_control: Administrative access to production infrastructure restricted on the
+    principle of least privilege; multi-factor authentication.
+  encryption: Encryption in transit and at rest.
+  awareness: Annual security awareness training.
+  insurance: Cybersecurity insurance procured.
+subprocessors:
+  published: true
+  source: https://trust.knowde.com/
+  examples:
+  - Amazon Web Services (EU and US)
+  - Anthropic (US)
+  - Avalara
+  - Census
+  - dbt
+  - Fivetran
+vulnerability_disclosure:
+  published: false
+  note: The Trust Center describes vulnerability scanning and annual penetration
+    testing but publishes no responsible-disclosure policy, bug bounty program or
+    security contact. /.well-known/security.txt is absent on every Knowde host, so no
+    Security or VulnerabilityDisclosure pointer is emitted.
+evidence:
+- source: https://trust.knowde.com/
+  keywords:
+  - soc 2
+  - iso 27001
+  - iso/iec 27001
+  - iso 27701
+  - trust center
+  - gdpr
+  - ccpa
+  - pipeda
+  - eu-u.s. data privacy framework
+x-evidence:
+  fetched: '2026-08-01'
+  url: https://trust.knowde.com/
+  http_status: 200

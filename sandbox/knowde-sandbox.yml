@@ -1,0 +1,41 @@
+generated: '2026-08-01'
+method: searched
+source: https://developer.knowde.com/documentation
+environments:
+- name: production
+  base_url: https://developer-api.knowde.com
+  auth_host: https://developer-api.knowde.com
+- name: staging
+  base_url: null
+  published: true
+  host_published: false
+  quote: 'When using the Knowde API, you have an option to work in our staging
+    environment to build and test your integration without affecting your live data
+    or interacting with production systems.'
+  source: https://developer.knowde.com/documentation
+  note: Knowde documents the existence of a staging environment for building and
+    testing integrations, but the staging hostname sits inside the sign-in-gated REST
+    and GraphQL references, so it is not recorded here. No host is invented.
+credentials:
+  provisioning: API Clients (client id + client secret) are created in the Knowde
+    Developer Portal by a company admin; the Knowde API must be enabled for the
+    company first.
+  docs: https://developer.knowde.com/documentation/api_clients
+  test_vs_live_key_prefixes:
+    published: false
+    note: Knowde publishes no test-vs-live credential prefix or mode flag.
+test_values:
+  published: false
+  note: No magic test identifiers, fixture values, test clocks, or trigger tooling are
+    published on the public developer site. Nothing is invented here.
+console:
+  developer_portal: https://developer.knowde.com/
+  note: The Developer Portal provides API Client management. No public API console,
+    GraphiQL playground or try-it surface is reachable anonymously.
+x-evidence:
+- fetched: '2026-08-01'
+  url: https://developer.knowde.com/documentation
+  http_status: 200
+- fetched: '2026-08-01'
+  url: https://developer.knowde.com/documentation/api_clients
+  http_status: 200

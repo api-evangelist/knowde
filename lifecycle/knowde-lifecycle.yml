@@ -1,0 +1,47 @@
+generated: '2026-08-01'
+method: searched
+source: https://developer.knowde.com/documentation
+versioning:
+  documented: false
+  scheme: null
+  note: 'Knowde publishes no API versioning policy. The documented request examples
+    are unversioned against the API host (e.g. GET /lead_groups on
+    https://developer-api.knowde.com). Knowde does state a coverage intent for the
+    two surfaces — "anything possible in the REST API should also be possible in the
+    GraphQL API" — but that is a parity goal, not a version policy.'
+deprecation:
+  policy_url: null
+  policy_published: false
+  sunset_header: unknown
+  note: No deprecation policy, Sunset/Deprecation header support (RFC 8594), or
+    breaking-change notice window is published. No Deprecation pointer is emitted.
+sla:
+  url: null
+  uptime_target: null
+  note: No public SLA or uptime commitment was found; commercial terms sit under the
+    Knowde subscription agreement.
+status_page:
+  url: https://status.knowde.com/
+  http_status: 200
+  subscriptions:
+  - email
+  - sms
+  note: Public Knowde Status page with incident history and create/update/resolve
+    notifications.
+release_notes:
+  url: https://www.knowde.com/resources/whats-new
+  detail: changelog/knowde-changelog.yml
+support:
+  url: https://help.knowde.com/hc/en-us
+  note: Redirects to the Knowde Jira Service Management customer portal
+    (help.support.knowde.com), which requires sign-in.
+deprecated_operations: []
+deprecated_operations_note: No public OpenAPI or GraphQL SDL is available anonymously,
+  so deprecated operations cannot be derived.
+x-evidence:
+- fetched: '2026-08-01'
+  url: https://status.knowde.com/
+  http_status: 200
+- fetched: '2026-08-01'
+  url: https://www.knowde.com/resources/whats-new
+  http_status: 200

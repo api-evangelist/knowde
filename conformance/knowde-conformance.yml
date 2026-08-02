@@ -1,0 +1,85 @@
+generated: '2026-08-01'
+method: searched
+source: https://developer.knowde.com/documentation
+notes: Standards posture assembled from the public Knowde developer documentation and
+  the Knowde Trust Center. Knowde publishes no OpenAPI or GraphQL SDL anonymously, so
+  nothing here is derived from a machine-readable contract.
+standards:
+- id: oauth2
+  conforms: true
+  evidence: 'Knowde API Authorization documents OAuth 2.0 with a client credentials
+    flow and a refresh token flow against https://developer-api.knowde.com/oauth/token.'
+  source: https://developer.knowde.com/documentation/auth
+- id: rfc6749-oauth2-client-credentials
+  conforms: true
+  evidence: 'POST /oauth/token with grant_type=client_credentials, parameters as
+    application/x-www-form-urlencoded, HTTP Basic client authentication.'
+  source: https://developer.knowde.com/documentation/auth
+- id: rfc6750-bearer-token-usage
+  conforms: true
+  evidence: 'Access tokens are sent in the Authorization: Bearer header. Knowde
+    explicitly does not support the URI query parameter form defined in RFC 6750
+    section 2.3.'
+  source: https://developer.knowde.com/documentation/auth
+- id: rfc7009-token-revocation
+  conforms: true
+  evidence: 'POST /oauth/revoke invalidates access and refresh tokens; always returns
+    200 OK; clients may only revoke their own tokens.'
+  source: https://developer.knowde.com/documentation/auth
+- id: ietf-ratelimit-headers
+  conforms: true
+  evidence: 'Responses carry RateLimit-Limit, RateLimit-Remaining and RateLimit-Reset
+    (epoch), the header field names from the IETF RateLimit header fields draft; over
+    limit returns 429.'
+  source: https://developer.knowde.com/documentation/rate_limits
+- id: graphql
+  conforms: true
+  evidence: 'Knowde recommends its GraphQL API as the primary programmatic interface;
+    the reference is generated from the Knowde GraphQL schema and exported as a
+    standard GraphQL SDL file. The endpoint at
+    https://developer-api.knowde.com/graphql answered an introspection POST with
+    HTTP 401 Unauthorized.'
+  source: https://developer.knowde.com/documentation/graphql
+- id: jsonapi-query-parameter-families
+  conforms: partial
+  evidence: 'PIMS REST filters use indexed query parameter families "in a similar
+    format as query parameter families, as defined by JSON API", with required array
+    indexes. Only the query-parameter convention is claimed — not the full JSON:API
+    document structure.'
+  source: https://developer.knowde.com/documentation/pims_filters
+- id: openapi
+  conforms: unknown
+  evidence: 'The REST reference is rendered with the Redoc standalone bundle
+    (cdn.redoc.ly/redoc/v2.0.0), which implies an OpenAPI document exists, but the
+    page redirects anonymous visitors to https://www.knowde.com/sign-in and no spec
+    URL is reachable on developer.knowde.com, developer-api.knowde.com,
+    api.knowde.com or www.knowde.com.'
+  source: https://developer.knowde.com/documentation/rest
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: 'No application/problem+json usage is documented; observed error bodies
+    are bare {"message": "..."} objects.'
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: /.well-known/security.txt returns 404 on www.knowde.com and 403 on
+    developer-api.knowde.com.
+- id: asyncapi
+  conforms: false
+  evidence: No event, streaming or webhook surface is documented on the public
+    developer site.
+- id: a2a-agent-card
+  conforms: false
+  evidence: /.well-known/agent-card.json and /.well-known/agent.json return 404 on
+    www.knowde.com and 403 on developer-api.knowde.com.
+compliance:
+  source: https://trust.knowde.com/
+  detail: security/knowde-trust-center.yml
+  certifications:
+  - SOC 2 Type 2
+  - ISO/IEC 27001:2022
+  - ISO/IEC 27701:2019
+  regulatory:
+  - GDPR
+  - CCPA
+  - PIPEDA
+  - EU-U.S. Data Privacy Framework (with UK and Swiss extensions)

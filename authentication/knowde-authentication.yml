@@ -1,0 +1,78 @@
+generated: '2026-08-01'
+method: searched
+source: https://developer.knowde.com/documentation/auth
+docs: https://developer.knowde.com/documentation/auth
+notes: 'Derived from the public Knowde API Authorization documentation. Knowde publishes
+  no OpenAPI or GraphQL SDL on a public URL (the REST and GraphQL references at
+  developer.knowde.com/documentation/rest and /documentation/graphql redirect to
+  https://www.knowde.com/sign-in), so this profile is transcribed from the docs
+  rather than derived from securitySchemes.'
+summary:
+  types:
+  - oauth2
+  oauth2_flows:
+  - clientCredentials
+  - refreshToken
+  api_key_in: []
+  token_type: Bearer
+  auth_host: https://developer-api.knowde.com
+schemes:
+- name: OAuth2ClientCredentials
+  type: oauth2
+  flow: clientCredentials
+  tokenUrl: https://developer-api.knowde.com/oauth/token
+  media_type: application/x-www-form-urlencoded
+  client_authentication: HTTP Basic (Base64 client_id:client_secret) or form parameters
+  grant_type: client_credentials
+  access_token_lifetime_seconds: 86400
+  issues_refresh_token: true
+  scopes: []
+  sources:
+  - https://developer.knowde.com/documentation/auth
+- name: OAuth2RefreshToken
+  type: oauth2
+  flow: refreshToken
+  tokenUrl: https://developer-api.knowde.com/oauth/token
+  grant_type: refresh_token
+  media_type: application/x-www-form-urlencoded
+  sources:
+  - https://developer.knowde.com/documentation/auth
+token_usage:
+  header: 'Authorization: Bearer {access_token}'
+  uri_query_parameter_supported: false
+  uri_query_parameter_note: 'Knowde explicitly does not support sending access tokens
+    as URI parameters (RFC 6750 section 2.3).'
+revocation:
+  supported: true
+  endpoint: https://developer-api.knowde.com/oauth/revoke
+  standard: RFC 7009 OAuth 2.0 Token Revocation
+  client_authentication: 'Authorization: Basic Base64(client_id:client_secret)'
+  behavior: Always returns 200 OK, even when the token does not exist or is already
+    revoked. A client may only revoke tokens it was issued.
+  sources:
+  - https://developer.knowde.com/documentation/auth
+credentials:
+  provisioning: API Clients are created and deleted in the Knowde Developer Portal.
+  requires: Company admin role, and the Knowde API must be enabled for the company
+    (arranged through a Knowde sales representative).
+  secret_display: Client id and client secret are displayed only once at creation.
+  docs: https://developer.knowde.com/documentation/api_clients
+scope_surface:
+  published: false
+  note: Knowde documents no OAuth scope or permission reference on its public developer
+    site; access appears to be bound to the API Client and the company's subscription
+    rather than to per-request scopes. No scopes/ artifact is emitted rather than
+    inventing one.
+guidance:
+  token_reuse: Knowde advises requesting tokens sparingly, keeping the number of active
+    tokens to a minimum, and not requesting a token per work item; excessive token
+    requests may be rate limited.
+x-evidence:
+- fetched: '2026-08-01'
+  url: https://developer.knowde.com/documentation/auth
+  http_status: 200
+- fetched: '2026-08-01'
+  url: https://developer-api.knowde.com/graphql
+  http_status: 401
+  note: POST of a GraphQL introspection query returns {"message":"Unauthorized"},
+    confirming the GraphQL endpoint exists and is authentication-gated.
