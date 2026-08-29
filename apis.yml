@@ -10,6 +10,17 @@ description: 'Knowde is an AI platform for industrial operations, built for the 
   from developer-api.knowde.com behind OAuth 2.0 client credentials, with API Clients
   provisioned in the Developer Portal and a documented PIMS filter grammar for querying
   product, category and attribute data.'
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://cdn.cxp.knowde.com/store/15d89a6e-1b0d-4b12-9ae9-06ae9d224a7b/knowde-logo_0b24070d06cb.svg
 url: https://raw.githubusercontent.com/api-evangelist/knowde/refs/heads/main/apis.yml
 x-type: company
