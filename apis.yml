@@ -43,7 +43,7 @@ x-tier: profiled
 x-tier-reason: enrichment-pipeline
 specificationVersion: '0.23'
 created: '2026-08-01'
-modified: '2026-08-01'
+modified: '2026-10-06'
 x-docs-platform: redocly
 x-docs-platform-confidence: medium
 x-docs-platform-checked: 2026-10-03
@@ -106,6 +106,8 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- url: https://blog.knowde.com/feed/
+  type: BlogRSS
 - type: TrustCenter
   url: security/knowde-trust-center.yml
 - type: DomainSecurity
