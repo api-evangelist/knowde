@@ -1,0 +1,20 @@
+name: Knowde rate limits
+generated: '2026-10-19'
+method: searched
+source: https://developer.knowde.com/documentation/rate_limits
+limit_count: 1
+note: The numeric limit is not published; it is set per Knowde subscription plan and returned at runtime in RateLimit-Limit.
+limits:
+- name: API request window
+  window: 5 minutes
+  scope: per-subscription-plan
+  limit_text: The rate limit resets every 5 minutes
+  plan: Knowde subscription plan (value not published)
+headers:
+- name: RateLimit-Limit
+  description: The total number of requests allowed within the current rate limit window, based on your Knowde subscription plan.
+- name: RateLimit-Remaining
+  description: The number of requests you have left before reaching the limit.
+- name: RateLimit-Reset
+  description: The time when your rate limit quota resets, expressed in epoch time
+exhaustion_status: 429

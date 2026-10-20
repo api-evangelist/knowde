@@ -1,5 +1,5 @@
 generated: '2026-08-01'
-method: searched
+method: none
 source: npm, PyPI, RubyGems, Maven Central, NuGet, pkg.go.dev, Packagist, crates.io,
   github.com/knowde, https://developer.knowde.com/documentation
 packages: []

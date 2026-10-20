@@ -1,15 +1,14 @@
 aid: knowde
+
 name: Knowde
-description: 'Knowde is an AI platform for industrial operations, built for the chemicals
-  and ingredients industry. Knowde AI extracts, structures, harmonizes and enriches
-  product data out of legacy systems and offline documents; Knowde MDM is the master
-  data repository that data lands in; Knowde CXP launches supplier storefronts natively
-  integrated with MDM; and the Knowde Marketplace is a network of 8,000+ chemical company
-  storefronts. The Knowde API gives customers programmatic access to that platform through
-  a GraphQL API (the recommended primary interface) and a RESTful JSON API, both served
-  from developer-api.knowde.com behind OAuth 2.0 client credentials, with API Clients
-  provisioned in the Developer Portal and a documented PIMS filter grammar for querying
-  product, category and attribute data.'
+
+description: Knowde is an AI platform for industrial operations, built for the chemicals and ingredients industry. Knowde AI extracts, structures,
+  harmonizes and enriches product data out of legacy systems and offline documents; Knowde MDM is the master data repository that data lands in;
+  Knowde CXP launches supplier storefronts natively integrated with MDM; and the Knowde Marketplace is a network of 8,000+ chemical company storefronts.
+  The Knowde API gives customers programmatic access to that platform through a GraphQL API (the recommended primary interface) and a RESTful
+  JSON API, both served from developer-api.knowde.com behind OAuth 2.0 client credentials, with API Clients provisioned in the Developer Portal
+  and a documented PIMS filter grammar for querying product, category and attribute data.
+
 deliveryModel:
   model: saas
   open_source: false
@@ -21,6 +20,7 @@ deliveryModel:
   - pricing
   generated: '2026-08-28'
   method: derived
+
 accessModel:
   pricing: unknown
   onboarding: self-serve
@@ -35,23 +35,37 @@ accessModel:
   - sandbox
   generated: '2026-09-02'
   method: derived
+
 image: https://cdn.cxp.knowde.com/store/15d89a6e-1b0d-4b12-9ae9-06ae9d224a7b/knowde-logo_0b24070d06cb.svg
+
 url: https://raw.githubusercontent.com/api-evangelist/knowde/refs/heads/main/apis.yml
+
 x-type: company
+
 x-source: harvest:secondary-market
+
 x-tier: profiled
+
 x-tier-reason: enrichment-pipeline
+
 specificationVersion: '0.23'
+
 created: '2026-08-01'
+
 modified: '2026-10-06'
+
 x-docs-platform: redocly
+
 x-docs-platform-confidence: medium
+
 x-docs-platform-checked: 2026-10-03
+
 x-enrichment:
-  date: '2026-08-01'
+  date: '2026-10-19'
   status: enriched
-  artifacts_added: 11
-  pass: local-v1
+  artifacts_added: 1
+  pass: local-v5
+
 tags:
 - Company
 - Chemicals
@@ -64,48 +78,22 @@ tags:
 - B2B Commerce
 - GraphQL
 - Artificial Intelligence
-apis:
-- name: Knowde GraphQL API
-  description: 'The GraphQL API is Knowde''s recommended primary programmatic interface
-    to the platform — anything possible in the REST API is intended to also be possible
-    in GraphQL. The reference is generated from the Knowde GraphQL schema and exported
-    as a standard GraphQL SDL file. The endpoint is served from developer-api.knowde.com
-    and requires an OAuth 2.0 bearer token; introspection is authenticated-only.'
-  humanURL: https://developer.knowde.com/documentation/graphql
-  baseURL: https://developer-api.knowde.com/graphql
-  tags:
-  - GraphQL
-  - Product Information Management
-  - Master Data Management
-  properties:
-  - type: Documentation
-    url: https://developer.knowde.com/documentation/graphql
-  - type: Authentication
-    url: https://developer.knowde.com/documentation/auth
-- name: Knowde REST API
-  description: 'The Knowde REST API is organized around RESTful resources with predictable
-    resource-oriented URLs, JSON-encoded payloads and responses, and standard HTTP
-    verbs and status codes. Resources include product, category, attribute and lead-group
-    data in the Knowde PIMS, queried through the documented PIMS filter grammar. A
-    staging environment is available so integrations can be built and tested without
-    touching live data.'
-  humanURL: https://developer.knowde.com/documentation/rest
-  baseURL: https://developer-api.knowde.com
-  tags:
-  - REST
-  - Product Information Management
-  - Master Data Management
-  properties:
-  - type: Documentation
-    url: https://developer.knowde.com/documentation/rest
-  - type: Authentication
-    url: https://developer.knowde.com/documentation/auth
+
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+
 common:
+- type: RateLimits
+  url: rate-limits/knowde-rate-limits.yml
+- type: Deprecation
+  url: lifecycle/knowde-lifecycle.yml
+- type: Hosts
+  url: hosts/knowde-hosts.yml
+- type: Vendors
+  url: vendors/knowde-vendors.yml
 - url: https://blog.knowde.com/feed/
   type: BlogRSS
 - type: TrustCenter
@@ -132,10 +120,6 @@ common:
   url: lifecycle/knowde-lifecycle.yml
 - type: Sandbox
   url: sandbox/knowde-sandbox.yml
-- type: Packages
-  url: packages/knowde-packages.yml
-- type: LLMsTxt
-  url: llms/knowde-llms.txt
 - type: RateLimits
   url: https://developer.knowde.com/documentation/rate_limits
 - type: SignUp
@@ -168,3 +152,52 @@ common:
   url: https://www.linkedin.com/company/knowde/
 - type: Twitter
   url: https://x.com/knowde
+
+apis:
+- name: Knowde GraphQL API
+  description: The GraphQL API is Knowde's recommended primary programmatic interface to the platform — anything possible in the REST API is intended
+    to also be possible in GraphQL. The reference is generated from the Knowde GraphQL schema and exported as a standard GraphQL SDL file. The
+    endpoint is served from developer-api.knowde.com and requires an OAuth 2.0 bearer token; introspection is authenticated-only.
+  humanURL: https://developer.knowde.com/documentation/graphql
+  baseURL: https://developer-api.knowde.com/graphql
+  tags:
+  - GraphQL
+  - Product Information Management
+  - Master Data Management
+  properties:
+  - type: Documentation
+    url: https://developer.knowde.com/documentation/graphql
+  - type: Authentication
+    url: https://developer.knowde.com/documentation/auth
+  aid: knowde:knowde-graphql-api
+- name: Knowde REST API
+  description: The Knowde REST API is organized around RESTful resources with predictable resource-oriented URLs, JSON-encoded payloads and responses,
+    and standard HTTP verbs and status codes. Resources include product, category, attribute and lead-group data in the Knowde PIMS, queried through
+    the documented PIMS filter grammar. A staging environment is available so integrations can be built and tested without touching live data.
+  humanURL: https://developer.knowde.com/documentation/rest
+  baseURL: https://developer-api.knowde.com
+  tags:
+  - REST
+  - Product Information Management
+  - Master Data Management
+  properties:
+  - type: Documentation
+    url: https://developer.knowde.com/documentation/rest
+  - type: Authentication
+    url: https://developer.knowde.com/documentation/auth
+  aid: knowde:knowde-rest-api
+
+x-coverage:
+  state: gated
+  reason: customer-only-docs
+  detail: Knowde's GraphQL and REST references on developer.knowde.com now redirect to the www.knowde.com sign-in page, and developer-api.knowde.com answers 401/403 anonymously, so no contract can be read or generated; only the auth, API clients, PIMS filters and rate-limits pages remain public.
+  evidence:
+  - url: https://developer.knowde.com/documentation/rest
+    status: 403
+  - url: https://developer-api.knowde.com/graphql
+    status: 401
+  - url: https://developer-api.knowde.com/openapi.json
+    status: 403
+  - url: https://developer.knowde.com/documentation/rate_limits
+    status: 200
+  checked: '2026-10-19'

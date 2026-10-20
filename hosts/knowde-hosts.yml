@@ -1,0 +1,227 @@
+generated: '2026-10-19'
+method: derived
+source: the pre-flight dossier, apis.yml pointers, spec servers, well-known, vendors -- nothing fetched here
+generator: derive-hosts.py
+summary:
+  hosts: 17
+  own: 14
+  other_domain: 0
+  platform: 3
+  roles:
+  - api
+  - legal
+  - marketing
+  - other
+  - portal
+  - source
+  - status
+  - support
+  - website
+hosts:
+- host: api.knowde.com
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: knowde.com
+  role: api
+  relation: own
+- host: blog.knowde.com
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - contract-discovery
+  - well-known
+  types:
+  - BlogRSS
+  - Blog
+  serves: []
+  registrable_domain: knowde.com
+  role: marketing
+  relation: own
+- host: developer-api.knowde.com
+  found_by:
+  - apis[]
+  - probed
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types: []
+  serves:
+  - api
+  - api-gateway
+  vendor: aws-api-gateway
+  registrable_domain: knowde.com
+  role: other
+  relation: own
+- host: developer.knowde.com
+  found_by:
+  - pointer
+  - apis[]
+  - probed
+  - site-links
+  - docs-index
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - DeveloperPortal
+  - Documentation
+  - APIReference
+  - GettingStarted
+  - RateLimits
+  serves:
+  - docs
+  - documentation
+  vendor: redocly
+  registrable_domain: knowde.com
+  role: portal
+  relation: own
+- host: github.com
+  found_by:
+  - pointer
+  types:
+  - GitHubOrganization
+  serves: []
+  registrable_domain: github.com
+  role: source
+  relation: platform
+- host: help.knowde.com
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - well-known
+  types:
+  - Support
+  serves: []
+  registrable_domain: knowde.com
+  role: support
+  relation: own
+- host: help.support.knowde.com
+  found_by:
+  - probed
+  - site-links
+  - docs-index
+  types: []
+  serves:
+  - docs
+  registrable_domain: knowde.com
+  role: support
+  relation: own
+- host: knowde.com
+  found_by:
+  - probed
+  - site-links
+  types: []
+  serves: []
+  registrable_domain: knowde.com
+  role: other
+  relation: own
+- host: news.knowde.com
+  found_by:
+  - probed
+  - site-links
+  types: []
+  serves: []
+  registrable_domain: knowde.com
+  role: marketing
+  relation: own
+- host: portal.support.knowde.com
+  found_by:
+  - probed
+  - site-links
+  - docs-index
+  types: []
+  serves:
+  - docs
+  registrable_domain: knowde.com
+  role: support
+  relation: own
+- host: privacy.knowde.com
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - well-known
+  types:
+  - TermsOfService
+  - PrivacyPolicy
+  serves: []
+  registrable_domain: knowde.com
+  role: legal
+  relation: own
+- host: software.knowde.com
+  found_by:
+  - probed
+  - site-links
+  types: []
+  serves: []
+  registrable_domain: knowde.com
+  role: other
+  relation: own
+- host: status.knowde.com
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - well-known
+  types:
+  - StatusPage
+  serves: []
+  registrable_domain: knowde.com
+  role: status
+  relation: own
+- host: trust.knowde.com
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - well-known
+  types:
+  - Compliance
+  serves: []
+  registrable_domain: knowde.com
+  role: other
+  relation: own
+- host: www.knowde.com
+  found_by:
+  - pointer
+  - probed
+  - docs-index
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - Website
+  - SignUp
+  - Login
+  - ReleaseNotes
+  - Marketplace
+  - Partners
+  serves:
+  - docs
+  - cdn
+  vendor: cloudfront
+  registrable_domain: knowde.com
+  role: website
+  relation: own
+- host: www.linkedin.com
+  found_by:
+  - pointer
+  types:
+  - LinkedIn
+  serves: []
+  registrable_domain: linkedin.com
+  role: other
+  relation: platform
+- host: x.com
+  found_by:
+  - pointer
+  types:
+  - Twitter
+  serves: []
+  registrable_domain: x.com
+  role: other
+  relation: platform

@@ -34,6 +34,7 @@ authentication:
   header: 'Authorization: Bearer {access_token}'
   detail: authentication/knowde-authentication.yml
 idempotency:
+  coverage: none
   supported: unknown
   documented: false
   note: Knowde publishes no idempotency-key header, retry-safety contract, or
