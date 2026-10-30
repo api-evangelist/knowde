@@ -64,48 +64,103 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Knowde is an AI platform for industrial operations, built for the chemicals and ingredients industry. Knowde AI extracts, structures, harmonizes and enriches product data out of legacy systems and offline documents; Knowde MDM is the master data repository that data lands in; Knowde CXP launches supplier storefronts natively integrated with MDM; and the Knowde Marketplace is a network of 8,000+ chemical company storefronts.
+Knowde is an AI platform for industrial operations, built for the chemicals and ingredients industry. Knowde AI extracts, structures, harmonizes and enriches product data out of legacy systems and offline documents; Knowde MDM is the master data repository that data lands in; Knowde CXP launches supplier storefronts natively integrated with MDM; and the Knowde Marketplace is a network of 8,000+ chemical company storefronts. The Knowde API gives customers programmatic access to that platform through a GraphQL API (the recommended primary interface) and a RESTful JSON API, both served from developer-api.knowde.com behind OAuth 2.0 client credentials, with API Clients provisioned in the Developer Portal and a documented PIMS filter grammar for querying product, category and attribute data.
 
-- Website — https://www.knowde.com/
-- Developer Center — https://developer.knowde.com/
-- Status — https://status.knowde.com/
-- Trust Center — https://trust.knowde.com/
+**Areas:** Company · Chemicals · Ingredients · Marketplace · Master Data Management · Product Information Management · Manufacturing · Distribution · B2B Commerce · GraphQL · Artificial Intelligence
 
-## APIs
+## Knowde on APIs.io
 
-| API | Base URL | Docs |
-|---|---|---|
-| Knowde GraphQL API | `https://developer-api.knowde.com/graphql` | https://developer.knowde.com/documentation/graphql |
-| Knowde REST API | `https://developer-api.knowde.com` | https://developer.knowde.com/documentation/rest |
+Everything profiled for Knowde is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/knowde/](https://apis.io/providers/knowde/)** — or go straight to one of the APIs or properties below.
 
-Knowde recommends GraphQL as the primary programmatic interface. Both surfaces use OAuth 2.0
-client credentials against `https://developer-api.knowde.com/oauth/token`, with bearer tokens in the
-`Authorization` header and RFC 7009 revocation at `/oauth/revoke`. API Clients are provisioned in the
-Developer Portal by a company admin, and the Knowde API must be enabled for the company.
+### APIs (2)
 
-**No machine-readable contract is published anonymously.** The REST reference is rendered with Redoc
-and the GraphQL reference is generated from the Knowde schema and exported as SDL, but both pages
-redirect anonymous visitors to `https://www.knowde.com/sign-in`. GraphQL introspection at
-`https://developer-api.knowde.com/graphql` returns HTTP 401. Every OpenAPI/Swagger/rswag path was
-probed on `developer-api.knowde.com`, `api.knowde.com`, `developer.knowde.com` and `www.knowde.com`
-and all missed.
+- [Knowde GraphQL API](https://apis.io/apis/knowde/knowde-graphql-api/) — The GraphQL API is Knowde's recommended primary programmatic interface to the platform — anything possible in the REST API is intended to also be possible…
+- [Knowde REST API](https://apis.io/apis/knowde/knowde-rest-api/) — The Knowde REST API is organized around RESTful resources with predictable resource-oriented URLs, JSON-encoded payloads and responses, and standard HTTP…
 
-## Artifacts
+### Published properties
 
-| Dir | File | Method |
-|---|---|---|
-| `authentication/` | `knowde-authentication.yml` | searched |
-| `conventions/` | `knowde-conventions.yml` | searched |
-| `conformance/` | `knowde-conformance.yml` | searched |
-| `lifecycle/` | `knowde-lifecycle.yml` | searched |
-| `changelog/` | `knowde-changelog.yml` | searched |
-| `sandbox/` | `knowde-sandbox.yml` | searched |
-| `packages/` | `knowde-packages.yml` | searched (no first-party SDK exists) |
-| `security/` | `knowde-trust-center.yml` | searched |
-| `security/` | `knowde-domain-security.yml` | probed |
-| `well-known/` | `knowde-well-known.yml` | probed (no documents published) |
-| `llms/` | `knowde-llms.txt` | generated |
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-Not present, and deliberately not authored: `openapi/`, `graphql/`, `mcp/`, `a2a/`, `asyncapi/`,
-`skills/`, `errors/`, `scopes/`, `cli/`, `components/`, `data-model/` — Knowde publishes none of
-these surfaces, and the pipeline does not fabricate them.
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Knowde Authentication](https://apis.io/security/knowde/knowde-authentication/)
+- [Knowde Domain Security](https://apis.io/security/knowde/knowde-domain-security/)
+- [Knowde Trust Center](https://apis.io/security/knowde/knowde-trust-center/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Knowde Rate Limits](https://apis.io/rate-limits/knowde/knowde-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.knowde.com/)
+- [Documentation](https://developer.knowde.com/documentation)
+- [Getting started](https://developer.knowde.com/documentation/api_clients)
+- [API reference](https://developer.knowde.com/documentation/rest)
+- [Sign up](https://www.knowde.com/sign-in)
+- [Support](https://help.knowde.com/hc/en-us)
+- [Blog](https://blog.knowde.com/)
+- [Compliance](https://trust.knowde.com/)
+- [Terms of service](https://privacy.knowde.com/terms-and-conditions/)
+- [Privacy policy](https://privacy.knowde.com/privacy-policy/)
+- [GitHub](https://github.com/knowde)
+- [Status](https://status.knowde.com/)
+
+## API Evangelist rating
+
+**Kin Score 38.9** — thin · rubric 0.24.0 · scored 2026-10-19
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 61.1 |
+| Developer ergonomics | 59.5 |
+| Access clarity | 42.1 |
+
+**Agent readiness 5.0** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 22.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/knowde/](https://apis.io/providers/knowde/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Knowde: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/knowde/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
